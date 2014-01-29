@@ -27,113 +27,91 @@ YogurtShowcase.Home = CLASS({
 
 			// content
 			DIV({
+				style : {
+					padding : 20
+				},
 				childs : [IMG({
 					style : {
+						display : 'block',
 						maxWidth : '100%'
 					},
 					src : YogurtShowcase.R_URI('yogurt.jpg')
 				}), P({
-					childs : ['Welcome to Yogurt Showcase.']
+					style : {
+						marginTop : 20
+					},
+					childs : ['Welcome to Yogurt Showcase.\nYogurt is ', A({
+						href : 'http://uppercase.io',
+						target : '_blank',
+						childs : ['UPPERCASE']
+					}), '-Based Mobile UI Framework.']
 				}), UL({
-					childs : [LI({
-						childs : [UUI.TEXT_BUTTON({
-							msg : 'Toolbar',
-							onTap : function() {
-								YogurtShowcase.GO('Toolbar');
-							}
-						})]
-					}), LI({
-						childs : [UUI.TEXT_BUTTON({
-							msg : 'Toolbar Button',
-							onTap : function() {
-								YogurtShowcase.GO('ToolbarButton');
-							}
-						})]
-					}), LI({
-						childs : [UUI.TEXT_BUTTON({
-							msg : 'Toolbar Input',
-							onTap : function() {
-								YogurtShowcase.GO('ToolbarInput');
-							}
-						})]
-					}), LI({
-						childs : [UUI.TEXT_BUTTON({
-							msg : 'Button',
-							onTap : function() {
-								YogurtShowcase.GO('Button');
-							}
-						})]
-					}), LI({
-						childs : [UUI.TEXT_BUTTON({
-							msg : 'Form',
-							onTap : function() {
-								YogurtShowcase.GO('Form');
-							}
-						})]
-					}), LI({
-						childs : [UUI.TEXT_BUTTON({
-							msg : 'List',
-							onTap : function() {
-								YogurtShowcase.GO('List');
-							}
-						})]
-					}), LI({
-						childs : [UUI.TEXT_BUTTON({
-							msg : 'Icon',
-							onTap : function() {
-								YogurtShowcase.GO('Icon');
-							}
-						})]
-					}), LI({
-						childs : [UUI.TEXT_BUTTON({
-							msg : 'Tap',
-							onTap : function() {
-								YogurtShowcase.GO('Tap');
-							}
-						})]
-					}), LI({
-						childs : [UUI.TEXT_BUTTON({
-							msg : 'Action Sheet',
-							onTap : function() {
-								YogurtShowcase.GO('ActionSheet');
-							}
-						})]
-					}), LI({
-						childs : [UUI.TEXT_BUTTON({
-							msg : 'Alert',
-							onTap : function() {
-								YogurtShowcase.GO('Alert');
-							}
-						})]
-					}), LI({
-						childs : [UUI.TEXT_BUTTON({
-							msg : 'Prompt',
-							onTap : function() {
-								YogurtShowcase.GO('Prompt');
-							}
-						})]
-					}), LI({
-						childs : [UUI.TEXT_BUTTON({
-							msg : 'Confirm',
-							onTap : function() {
-								YogurtShowcase.GO('Confirm');
-							}
-						})]
-					}), LI({
-						childs : [UUI.TEXT_BUTTON({
-							msg : 'Picker',
-							onTap : function() {
-								YogurtShowcase.GO('Picker');
-							}
-						})]
-					}), LI({
-						childs : [UUI.TEXT_BUTTON({
-							msg : 'Menu',
-							onTap : function() {
-								YogurtShowcase.GO('Menu');
-							}
-						})]
-					})]
+					style : {
+						marginTop : 20
+					},
+					childs : RUN(function() {
+
+						var
+						// array
+						array = [];
+
+						EACH([{
+							title : 'Toolbar',
+							uri : 'Toolbar'
+						}, {
+							title : 'Toolbar Button',
+							uri : 'ToolbarButton'
+						}, {
+							title : 'Toolbar Input',
+							uri : 'ToolbarInput'
+						}, {
+							title : 'Button',
+							uri : 'Button'
+						}, {
+							title : 'Form',
+							uri : 'Form'
+						}, {
+							title : 'List',
+							uri : 'List'
+						}, {
+							title : 'Icon',
+							uri : 'Icon'
+						}, {
+							title : 'Tap',
+							uri : 'Tap'
+						}, {
+							title : 'Action Sheet',
+							uri : 'ActionSheet'
+						}, {
+							title : 'Alert',
+							uri : 'Alert'
+						}, {
+							title : 'Prompt',
+							uri : 'Prompt'
+						}, {
+							title : 'Confirm',
+							uri : 'Confirm'
+						}, {
+							title : 'Picker',
+							uri : 'Picker'
+						}, {
+							title : 'Menu',
+							uri : 'Menu'
+						}], function(data, i) {
+
+							array.push(Yogurt.Button({
+								style : {
+									marginTop : i === 0 ? 0 : 15
+								},
+								msg : data.title,
+								onTap : function() {
+									YogurtShowcase.GO(data.uri);
+								}
+							}));
+						});
+
+						return array;
+					})
 				})]
 			})]
 		}).appendTo(YogurtShowcase.GLOBAL.content);
