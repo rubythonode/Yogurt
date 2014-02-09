@@ -1,4 +1,4 @@
-YogurtShowcase.Toolbar = CLASS({
+YogurtShowcase.ToolbarButton = CLASS({
 
 	preset : function() {'use strict';
 		return VIEW;
@@ -7,13 +7,15 @@ YogurtShowcase.Toolbar = CLASS({
 	init : function(cls, inner, self) {'use strict';
 
 		var
+		//
+
 		// wrapper
 		wrapper,
 
 		// close.
 		close;
 
-		TITLE('Yogurt Toolbar.');
+		TITLE('Yogurt Toolbar Button.');
 
 		wrapper = Yogurt.Wrapper({
 			childs : [
@@ -23,16 +25,37 @@ YogurtShowcase.Toolbar = CLASS({
 
 				// left childs
 				leftChilds : [Yogurt.ToolbarButton({
+					style : {
+						flt : 'left'
+					},
 					img : IMG({
 						src : Yogurt.R('back.png')
 					}),
 					onTap : function() {
 						YogurtShowcase.GO('');
 					}
+				}), Yogurt.ToolbarButton({
+					style : {
+						flt : 'left'
+					},
+					img : IMG({
+						src : Yogurt.R('back.png')
+					}),
+					onTap : function() {
+
+					}
 				})],
 
 				// title
-				title : 'Toolbar'
+				title : 'Toolbar Button',
+
+				// right childs
+				rightChilds : [Yogurt.ToolbarButton({
+					msg : 'Button',
+					onTap : function() {
+
+					}
+				})]
 			}),
 
 			// content

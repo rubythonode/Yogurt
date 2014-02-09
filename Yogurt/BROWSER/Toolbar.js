@@ -121,8 +121,8 @@ Yogurt.Toolbar = CLASS({
 				}), right = DIV({
 					style : {
 						position : 'absolute',
-						top : 9,
-						right : 9
+						top : 0,
+						right : 0
 					}
 				})]
 			})]

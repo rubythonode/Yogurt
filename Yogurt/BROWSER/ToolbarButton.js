@@ -1,4 +1,4 @@
-Yogurt('Toolbar').Button = CLASS({
+Yogurt.ToolbarButton = CLASS({
 
 	preset : function() {'use strict';
 		return NODE;
