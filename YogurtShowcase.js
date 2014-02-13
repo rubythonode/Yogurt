@@ -6,6 +6,6 @@ BOOT({
 		isDevMode : true
 	},
 	SERVER_CONFIG : {
-		isNotNeedDbAuth : true
+		isNotNeedDBAuth : true
 	}
 });
