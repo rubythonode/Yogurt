@@ -7,7 +7,7 @@ Yogurt.Button = CLASS({
 	init : function(cls, inner, self, params) {'use strict';
 		//REQUIRED: params
 		//OPTIONAL: params.img
-		//OPTIONAL: params.msg
+		//OPTIONAL: params.title
 		//OPTIONAL: params.href
 		//OPTIONAL: params.target
 		//OPTIONAL: params.style
@@ -17,8 +17,8 @@ Yogurt.Button = CLASS({
 		// img
 		img = params.img,
 
-		// msg
-		msg = params.msg,
+		// title
+		title = params.title,
 
 		// href
 		href = params.href,
@@ -32,14 +32,17 @@ Yogurt.Button = CLASS({
 		// on tap
 		onTap = params.onTap,
 
+		// color
+		color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.ButtonColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.ButtonColor,
+
 		// a
 		a,
 
 		// span
 		span,
 
-		// set msg.
-		setMsg,
+		// set title.
+		setTitle,
 
 		// get img.
 		getImg,
@@ -109,19 +112,21 @@ Yogurt.Button = CLASS({
 				paddingBottom : 20,
 				cursor : 'pointer',
 				textDecoration : 'none',
-				backgroundColor : '#333',
-				color : '#fff',
+				color : color,
 				fontSize : 24,
-				borderRadius : 5
+				border : '1px solid ' + color,
+				borderRadius : 5,
+				touchCallout : 'none',
+				userSelect : 'none'
 			},
 			href : href,
 			target : target
 		});
 
-		if (msg !== undefined) {
+		if (title !== undefined) {
 			a.prepend(DIV({
 				childs : [ span = SPAN({
-					childs : [msg === undefined ? '' : msg]
+					childs : [title === undefined ? '' : title]
 				})]
 			}));
 		}
@@ -129,7 +134,7 @@ Yogurt.Button = CLASS({
 		if (img !== undefined) {
 			a.prepend(DIV({
 				style : {
-					marginBottom : msg !== undefined ? 5 : 0
+					marginBottom : title !== undefined ? 5 : 0
 				},
 				childs : [img]
 			}));
@@ -144,9 +149,29 @@ Yogurt.Button = CLASS({
 			});
 		}
 
-		self.setMsg = setMsg = function(msg) {
+		EVENT({
+			node : a,
+			name : 'mouseover'
+		}, function(e) {
+			a.addStyle({
+				color : '#fff',
+				backgroundColor : color
+			});
+		});
+
+		EVENT({
+			node : a,
+			name : 'mouseout'
+		}, function(e) {
+			a.addStyle({
+				color : color,
+				backgroundColor : 'transparent'
+			});
+		});
+
+		self.setTitle = setTitle = function(title) {
 			span.removeAllChilds();
-			span.append(msg);
+			span.append(title);
 		};
 
 		self.getImg = getImg = function() {

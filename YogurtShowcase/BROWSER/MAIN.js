@@ -21,5 +21,10 @@ YogurtShowcase.MAIN = METHOD({
 			uris : ['ToolbarButton'],
 			target : YogurtShowcase.ToolbarButton
 		});
+		
+		YogurtShowcase.MATCH_VIEW({
+			uris : ['Button'],
+			target : YogurtShowcase.Button
+		});
 	}
 });

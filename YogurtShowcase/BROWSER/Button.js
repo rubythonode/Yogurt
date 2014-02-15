@@ -1,4 +1,4 @@
-YogurtShowcase.Toolbar = CLASS({
+YogurtShowcase.Button = CLASS({
 
 	preset : function() {'use strict';
 		return VIEW;
@@ -13,7 +13,7 @@ YogurtShowcase.Toolbar = CLASS({
 		// close.
 		close;
 
-		TITLE('Yogurt Toolbar.');
+		TITLE('Yogurt Button.');
 
 		wrapper = Yogurt.Wrapper({
 			childs : [
@@ -32,7 +32,7 @@ YogurtShowcase.Toolbar = CLASS({
 				}),
 
 				// title
-				title : 'Toolbar'
+				title : 'Button'
 			}),
 
 			// content
@@ -41,7 +41,15 @@ YogurtShowcase.Toolbar = CLASS({
 					padding : 20
 				},
 				childs : [P({
-					childs : ['Welcome to Yogurt Showcase.']
+					childs : ['Welcome to Button Showcase.']
+				}), Yogurt.Button({
+					style : {
+						marginTop : 15
+					},
+					title : 'Go Back',
+					onTap : function() {
+						YogurtShowcase.GO('');
+					}
 				})]
 			})]
 		}).appendTo(BODY);

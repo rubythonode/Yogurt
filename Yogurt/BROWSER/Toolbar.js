@@ -6,23 +6,26 @@ Yogurt.Toolbar = CLASS({
 
 	init : function(cls, inner, self, params) {'use strict';
 		//OPTIONAL: params
-		//OPTIONAL: params.leftChilds
+		//OPTIONAL: params.leftChild
 		//OPTIONAL: params.title
-		//OPTIONAL: params.rightChilds
+		//OPTIONAL: params.rightChild
 		//OPTIONAL: params.style
 
 		var
-		// left childs
-		leftChilds = params === undefined ? undefined : params.leftChilds,
+		// left child
+		leftChild = params === undefined ? undefined : params.leftChild,
 
 		// title
 		title = params === undefined ? undefined : params.title,
 
-		// right childs
-		rightChilds = params === undefined ? undefined : params.rightChilds,
+		// right child
+		rightChild = params === undefined ? undefined : params.rightChild,
 
 		// style
 		style = params === undefined ? undefined : params.style,
+
+		// color
+		color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.ToolbarColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.ToolbarColor,
 
 		// div
 		div,
@@ -30,8 +33,8 @@ Yogurt.Toolbar = CLASS({
 		// left
 		left,
 
-		// center
-		center,
+		// title dom
+		titleDom,
 
 		// right
 		right,
@@ -92,14 +95,14 @@ Yogurt.Toolbar = CLASS({
 
 		div = DIV({
 			style : {
-				backgroundColor : '#333',
+				backgroundColor : color,
 				height : 50
 			},
 			childs : [DIV({
 				style : {
 					position : 'fixed',
 					top : 0,
-					backgroundColor : '#333',
+					backgroundColor : color,
 					color : '#fff',
 					height : 50,
 					width : '100%'
@@ -110,14 +113,14 @@ Yogurt.Toolbar = CLASS({
 						top : 0,
 						left : 0
 					}
-				}), title = H1({
+				}), titleDom = H1({
 					style : {
 						paddingTop : 13,
 						fontSize : 20,
 						textAlign : 'center',
 						fontWeight : 'bold'
 					},
-					childs : [title]
+					childs : [title === undefined ? '' : title]
 				}), right = DIV({
 					style : {
 						position : 'absolute',
@@ -128,16 +131,12 @@ Yogurt.Toolbar = CLASS({
 			})]
 		});
 
-		if (leftChilds !== undefined) {
-			EACH(leftChilds, function(child, i) {
-				left.append(child);
-			});
+		if (leftChild !== undefined) {
+			left.append(leftChild);
 		}
 
-		if (rightChilds !== undefined) {
-			EACH(rightChilds, function(child, i) {
-				right.append(child);
-			});
+		if (rightChild !== undefined) {
+			right.append(rightChild);
 		}
 
 		self.getDom = getDom = function() {

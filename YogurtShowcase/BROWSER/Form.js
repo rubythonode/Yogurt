@@ -1,4 +1,4 @@
-YogurtShowcase.Toolbar = CLASS({
+YogurtShowcase.Form = CLASS({
 
 	preset : function() {'use strict';
 		return VIEW;
@@ -13,7 +13,7 @@ YogurtShowcase.Toolbar = CLASS({
 		// close.
 		close;
 
-		TITLE('Yogurt Toolbar.');
+		TITLE('Yogurt Form.');
 
 		wrapper = Yogurt.Wrapper({
 			childs : [
@@ -32,7 +32,7 @@ YogurtShowcase.Toolbar = CLASS({
 				}),
 
 				// title
-				title : 'Toolbar'
+				title : 'Form'
 			}),
 
 			// content
@@ -41,7 +41,14 @@ YogurtShowcase.Toolbar = CLASS({
 					padding : 20
 				},
 				childs : [P({
-					childs : ['Welcome to Yogurt Showcase.']
+					childs : ['Welcome to Form Showcase.']
+				}), UUI.VALID_FORM({
+					style : {
+						marginTop : 15
+					},
+					childs : [Yogurt.Input({
+						
+					})]
 				})]
 			})]
 		}).appendTo(BODY);

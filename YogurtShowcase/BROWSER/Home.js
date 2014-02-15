@@ -62,9 +62,6 @@ YogurtShowcase.Home = CLASS({
 							title : 'Toolbar Button',
 							uri : 'ToolbarButton'
 						}, {
-							title : 'Toolbar Input',
-							uri : 'ToolbarInput'
-						}, {
 							title : 'Button',
 							uri : 'Button'
 						}, {
