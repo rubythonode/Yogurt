@@ -69,8 +69,8 @@ Yogurt.Toolbar = CLASS({
 		// remove.
 		remove,
 
-		// remove all childs.
-		removeAllChilds,
+		// remove all children.
+		removeAllChildren,
 
 		// get parent.
 		getParent,
@@ -78,8 +78,8 @@ Yogurt.Toolbar = CLASS({
 		// set parent.
 		setParent,
 
-		// get childs.
-		getChilds,
+		// get children.
+		getChildren,
 
 		// add style.
 		addStyle,
@@ -98,7 +98,7 @@ Yogurt.Toolbar = CLASS({
 				backgroundColor : color,
 				height : 50
 			},
-			childs : [DIV({
+			children : [DIV({
 				style : {
 					position : 'fixed',
 					top : 0,
@@ -107,7 +107,7 @@ Yogurt.Toolbar = CLASS({
 					height : 50,
 					width : '100%'
 				},
-				childs : [ left = DIV({
+				children : [ left = DIV({
 					style : {
 						position : 'absolute',
 						top : 0,
@@ -120,7 +120,7 @@ Yogurt.Toolbar = CLASS({
 						textAlign : 'center',
 						fontWeight : 'bold'
 					},
-					childs : [title === undefined ? '' : title]
+					children : [title === undefined ? '' : title]
 				}), right = DIV({
 					style : {
 						position : 'absolute',
@@ -203,8 +203,8 @@ Yogurt.Toolbar = CLASS({
 			div.remove();
 		};
 
-		self.removeAllChilds = removeAllChilds = function() {
-			div.removeAllChilds();
+		self.removeAllChildren = removeAllChildren = function() {
+			div.removeAllChildren();
 		};
 
 		self.getParent = getParent = function() {
@@ -217,8 +217,8 @@ Yogurt.Toolbar = CLASS({
 			div.setParent(parent);
 		};
 
-		self.getChilds = getChilds = function() {
-			return div.getChilds();
+		self.getChildren = getChildren = function() {
+			return div.getChildren();
 		};
 
 		self.addStyle = addStyle = function(style) {

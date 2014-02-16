@@ -9,7 +9,7 @@ Yogurt.Checkbox = CLASS({
 		//REQUIRED: params.name
 		//REQUIRED: params.label
 		//OPTIONAL: params.value
-		//OPTIONAL: params.childs
+		//OPTIONAL: params.children
 		//OPTIONAL: params.wrapperStyle
 		//OPTIONAL: params.inputStyle
 		//OPTIONAL: params.onChange
@@ -24,8 +24,8 @@ Yogurt.Checkbox = CLASS({
 		// value
 		value = params.value,
 
-		// childs
-		childs = params.childs,
+		// children
+		children = params.children,
 
 		// wrapper style
 		wrapperStyle = params.wrapperStyle,
@@ -78,8 +78,8 @@ Yogurt.Checkbox = CLASS({
 		// remove.
 		remove,
 
-		// remove all childs.
-		removeAllChilds,
+		// remove all children.
+		removeAllChildren,
 
 		// get parent.
 		getParent,
@@ -87,8 +87,8 @@ Yogurt.Checkbox = CLASS({
 		// set parent.
 		setParent,
 
-		// get childs.
-		getChilds,
+		// get children.
+		getChildren,
 
 		// get name.
 		getName,
@@ -136,7 +136,7 @@ Yogurt.Checkbox = CLASS({
 					e.stop();
 				}
 			},
-			childs : [ input = INPUT({
+			children : [ input = INPUT({
 				style : {
 					flt : 'left',
 					marginTop : 10,
@@ -151,7 +151,7 @@ Yogurt.Checkbox = CLASS({
 					padding : 10,
 					paddingLeft : 0
 				},
-				childs : [label]
+				children : [label]
 			}), CLEAR_BOTH()]
 		});
 
@@ -168,8 +168,8 @@ Yogurt.Checkbox = CLASS({
 			wrapper.append(node);
 		};
 
-		if (childs !== undefined) {
-			EACH(childs, function(child, i) {
+		if (children !== undefined) {
+			EACH(children, function(child, i) {
 				labelDom.after(child);
 			});
 		}
@@ -228,8 +228,8 @@ Yogurt.Checkbox = CLASS({
 			wrapper.remove();
 		};
 
-		self.removeAllChilds = removeAllChilds = function() {
-			wrapper.removeAllChilds();
+		self.removeAllChildren = removeAllChildren = function() {
+			wrapper.removeAllChildren();
 		};
 
 		self.getParent = getParent = function() {
@@ -242,8 +242,8 @@ Yogurt.Checkbox = CLASS({
 			wrapper.setParent(parent);
 		};
 
-		self.getChilds = getChilds = function() {
-			return wrapper.getChilds();
+		self.getChildren = getChildren = function() {
+			return wrapper.getChildren();
 		};
 
 		self.getName = getName = function() {

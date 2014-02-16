@@ -80,8 +80,8 @@ Yogurt.ToolbarButton = CLASS({
 		// remove.
 		remove,
 
-		// remove all childs.
-		removeAllChilds,
+		// remove all children.
+		removeAllChildren,
 
 		// get parent.
 		getParent,
@@ -89,8 +89,8 @@ Yogurt.ToolbarButton = CLASS({
 		// set parent.
 		setParent,
 
-		// get childs.
-		getChilds,
+		// get children.
+		getChildren,
 
 		// add style.
 		addStyle,
@@ -116,12 +116,12 @@ Yogurt.ToolbarButton = CLASS({
 			},
 			href : href,
 			target : target,
-			childs : [ msgDom = DIV({
+			children : [ msgDom = DIV({
 				style : {
 					flt : 'left'
 				},
-				childs : [ span = SPAN({
-					childs : [msg === undefined ? '' : msg]
+				children : [ span = SPAN({
+					children : [msg === undefined ? '' : msg]
 				})]
 			}), CLEAR_BOTH()]
 		});
@@ -162,7 +162,7 @@ Yogurt.ToolbarButton = CLASS({
 		}
 
 		self.setMsg = setMsg = function(msg) {
-			span.removeAllChilds();
+			span.removeAllChildren();
 			span.append(msg);
 		};
 
@@ -234,8 +234,8 @@ Yogurt.ToolbarButton = CLASS({
 			a.remove();
 		};
 
-		self.removeAllChilds = removeAllChilds = function() {
-			a.removeAllChilds();
+		self.removeAllChildren = removeAllChildren = function() {
+			a.removeAllChildren();
 		};
 
 		self.getParent = getParent = function() {
@@ -248,8 +248,8 @@ Yogurt.ToolbarButton = CLASS({
 			a.setParent(parent);
 		};
 
-		self.getChilds = getChilds = function() {
-			return a.getChilds();
+		self.getChildren = getChildren = function() {
+			return a.getChildren();
 		};
 
 		self.addStyle = addStyle = function(style) {

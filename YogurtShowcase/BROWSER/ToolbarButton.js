@@ -18,7 +18,7 @@ YogurtShowcase.ToolbarButton = CLASS({
 		TITLE('Yogurt Toolbar Button.');
 
 		wrapper = Yogurt.Wrapper({
-			childs : [
+			children : [
 
 			// toolbar
 			Yogurt.Toolbar({
@@ -53,8 +53,8 @@ YogurtShowcase.ToolbarButton = CLASS({
 				style : {
 					padding : 20
 				},
-				childs : [P({
-					childs : ['Welcome to Yogurt Showcase.']
+				children : [P({
+					children : ['Welcome to Yogurt Showcase.']
 				})]
 			})]
 		}).appendTo(BODY);

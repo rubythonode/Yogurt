@@ -16,7 +16,7 @@ YogurtShowcase.Form = CLASS({
 		TITLE('Yogurt Form.');
 
 		wrapper = Yogurt.Wrapper({
-			childs : [
+			children : [
 
 			// toolbar
 			Yogurt.Toolbar({
@@ -40,13 +40,13 @@ YogurtShowcase.Form = CLASS({
 				style : {
 					padding : 20
 				},
-				childs : [P({
-					childs : ['Welcome to Form Showcase.']
+				children : [P({
+					children : ['Welcome to Form Showcase.']
 				}), UUI.VALID_FORM({
 					style : {
 						marginTop : 15
 					},
-					childs : [Yogurt.Input({
+					children : [Yogurt.Input({
 						
 					})]
 				})]

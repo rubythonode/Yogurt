@@ -68,8 +68,8 @@ Yogurt.Select = CLASS({
 		// remove.
 		remove,
 
-		// remove all childs.
-		removeAllChilds,
+		// remove all children.
+		removeAllChildren,
 
 		// get parent.
 		getParent,
@@ -77,8 +77,8 @@ Yogurt.Select = CLASS({
 		// set parent.
 		setParent,
 
-		// get childs.
-		getChilds,
+		// get children.
+		getChildren,
 
 		// get name.
 		getName,
@@ -124,7 +124,7 @@ Yogurt.Select = CLASS({
 				border : '1px solid #666',
 				borderLeft : '5px solid #666'
 			},
-			childs : [ _select = SELECT({
+			children : [ _select = SELECT({
 				style : {
 					width : '100%',
 					backgroundColor : 'transparent',
@@ -201,8 +201,8 @@ Yogurt.Select = CLASS({
 			wrapper.remove();
 		};
 
-		self.removeAllChilds = removeAllChilds = function() {
-			wrapper.removeAllChilds();
+		self.removeAllChildren = removeAllChildren = function() {
+			wrapper.removeAllChildren();
 		};
 
 		self.getParent = getParent = function() {
@@ -215,8 +215,8 @@ Yogurt.Select = CLASS({
 			wrapper.setParent(parent);
 		};
 
-		self.getChilds = getChilds = function() {
-			return wrapper.getChilds();
+		self.getChildren = getChildren = function() {
+			return wrapper.getChildren();
 		};
 
 		self.getName = getName = function() {

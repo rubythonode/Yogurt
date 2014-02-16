@@ -14,7 +14,7 @@ YogurtShowcase.Control = CLASS({
 		close;
 
 		YogurtShowcase.GLOBAL.wrapper = wrapper = Yogurt.Wrapper({
-			childs : [
+			children : [
 
 			// content
 			YogurtShowcase.GLOBAL.content = DIV()]

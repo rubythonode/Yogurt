@@ -16,7 +16,7 @@ YogurtShowcase.Button = CLASS({
 		TITLE('Yogurt Button.');
 
 		wrapper = Yogurt.Wrapper({
-			childs : [
+			children : [
 
 			// toolbar
 			Yogurt.Toolbar({
@@ -40,8 +40,8 @@ YogurtShowcase.Button = CLASS({
 				style : {
 					padding : 20
 				},
-				childs : [P({
-					childs : ['Welcome to Button Showcase.']
+				children : [P({
+					children : ['Welcome to Button Showcase.']
 				}), Yogurt.Button({
 					style : {
 						marginTop : 15

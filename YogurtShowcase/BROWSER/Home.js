@@ -16,7 +16,7 @@ YogurtShowcase.Home = CLASS({
 		TITLE('Yogurt Toolbar.');
 
 		wrapper = Yogurt.Wrapper({
-			childs : [
+			children : [
 
 			// toolbar
 			Yogurt.Toolbar({
@@ -30,7 +30,7 @@ YogurtShowcase.Home = CLASS({
 				style : {
 					padding : 20
 				},
-				childs : [IMG({
+				children : [IMG({
 					style : {
 						display : 'block',
 						maxWidth : '100%'
@@ -40,16 +40,16 @@ YogurtShowcase.Home = CLASS({
 					style : {
 						marginTop : 20
 					},
-					childs : ['Welcome to Yogurt Showcase.\nYogurt is ', A({
+					children : ['Welcome to Yogurt Showcase.\nYogurt is ', A({
 						href : 'http://uppercase.io',
 						target : '_blank',
-						childs : ['UPPERCASE']
+						children : ['UPPERCASE']
 					}), '-Based Mobile UI Framework.']
 				}), UL({
 					style : {
 						marginTop : 20
 					},
-					childs : RUN(function() {
+					children : RUN(function() {
 
 						var
 						// array

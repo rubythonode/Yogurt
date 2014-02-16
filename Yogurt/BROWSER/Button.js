@@ -77,8 +77,8 @@ Yogurt.Button = CLASS({
 		// remove.
 		remove,
 
-		// remove all childs.
-		removeAllChilds,
+		// remove all children.
+		removeAllChildren,
 
 		// get parent.
 		getParent,
@@ -86,8 +86,8 @@ Yogurt.Button = CLASS({
 		// set parent.
 		setParent,
 
-		// get childs.
-		getChilds,
+		// get children.
+		getChildren,
 
 		// add style.
 		addStyle,
@@ -125,8 +125,8 @@ Yogurt.Button = CLASS({
 
 		if (title !== undefined) {
 			a.prepend(DIV({
-				childs : [ span = SPAN({
-					childs : [title === undefined ? '' : title]
+				children : [ span = SPAN({
+					children : [title === undefined ? '' : title]
 				})]
 			}));
 		}
@@ -136,7 +136,7 @@ Yogurt.Button = CLASS({
 				style : {
 					marginBottom : title !== undefined ? 5 : 0
 				},
-				childs : [img]
+				children : [img]
 			}));
 		}
 
@@ -170,7 +170,7 @@ Yogurt.Button = CLASS({
 		});
 
 		self.setTitle = setTitle = function(title) {
-			span.removeAllChilds();
+			span.removeAllChildren();
 			span.append(title);
 		};
 
@@ -242,8 +242,8 @@ Yogurt.Button = CLASS({
 			a.remove();
 		};
 
-		self.removeAllChilds = removeAllChilds = function() {
-			a.removeAllChilds();
+		self.removeAllChildren = removeAllChildren = function() {
+			a.removeAllChildren();
 		};
 
 		self.getParent = getParent = function() {
@@ -256,8 +256,8 @@ Yogurt.Button = CLASS({
 			a.setParent(parent);
 		};
 
-		self.getChilds = getChilds = function() {
-			return a.getChilds();
+		self.getChildren = getChildren = function() {
+			return a.getChildren();
 		};
 
 		self.addStyle = addStyle = function(style) {

@@ -6,12 +6,12 @@ Yogurt.Wrapper = CLASS({
 
 	init : function(cls, inner, self, params) {'use strict';
 		//OPTIONAL: params
-		//OPTIONAL: params.childs
+		//OPTIONAL: params.children
 		//OPTIONAL: params.style
 
 		var
-		// childs
-		childs = params === undefined ? undefined : params.childs,
+		// children
+		children = params === undefined ? undefined : params.children,
 
 		// style
 		style = params === undefined ? undefined : params.style,
@@ -49,8 +49,8 @@ Yogurt.Wrapper = CLASS({
 		// remove.
 		remove,
 
-		// remove all childs.
-		removeAllChilds,
+		// remove all children.
+		removeAllChildren,
 
 		// get parent.
 		getParent,
@@ -58,8 +58,8 @@ Yogurt.Wrapper = CLASS({
 		// set parent.
 		setParent,
 
-		// get childs.
-		getChilds,
+		// get children.
+		getChildren,
 
 		// add style.
 		addStyle;
@@ -86,8 +86,8 @@ Yogurt.Wrapper = CLASS({
 			div.append(node);
 		};
 
-		if (childs !== undefined) {
-			EACH(childs, function(child) {
+		if (children !== undefined) {
+			EACH(children, function(child) {
 				append(child);
 			});
 		}
@@ -146,8 +146,8 @@ Yogurt.Wrapper = CLASS({
 			div.remove();
 		};
 
-		self.removeAllChilds = removeAllChilds = function() {
-			div.removeAllChilds();
+		self.removeAllChildren = removeAllChildren = function() {
+			div.removeAllChildren();
 		};
 
 		self.getParent = getParent = function() {
@@ -160,8 +160,8 @@ Yogurt.Wrapper = CLASS({
 			div.setParent(parent);
 		};
 
-		self.getChilds = getChilds = function() {
-			return div.getChilds();
+		self.getChildren = getChildren = function() {
+			return div.getChildren();
 		};
 
 		self.addStyle = addStyle = function(style) {
