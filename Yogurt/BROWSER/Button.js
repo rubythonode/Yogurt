@@ -117,7 +117,8 @@ Yogurt.Button = CLASS({
 				border : '1px solid ' + color,
 				borderRadius : 5,
 				touchCallout : 'none',
-				userSelect : 'none'
+				userSelect : 'none',
+				backgroundColor : '#fff'
 			},
 			href : href,
 			target : target
@@ -165,7 +166,7 @@ Yogurt.Button = CLASS({
 		}, function(e) {
 			a.addStyle({
 				color : color,
-				backgroundColor : 'transparent'
+				backgroundColor : '#fff'
 			});
 		});
 

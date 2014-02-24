@@ -14,7 +14,10 @@ Yogurt.Wrapper = CLASS({
 		children = params === undefined ? undefined : params.children,
 
 		// style
-		style = params === undefined ? undefined : params.style,
+		style = COMBINE_DATA({
+			origin : BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.WrapperStyle === undefined ? {} : BROWSER_CONFIG.Yogurt.WrapperStyle,
+			extend : params.style
+		}),
 
 		// div
 		div,
@@ -170,8 +173,6 @@ Yogurt.Wrapper = CLASS({
 			div.addStyle(style);
 		};
 
-		if (style !== undefined) {
-			addStyle(style);
-		}
+		addStyle(style);
 	}
 });

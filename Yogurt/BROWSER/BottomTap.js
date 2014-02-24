@@ -1,4 +1,4 @@
-Yogurt.Toolbar = CLASS({
+Yogurt.BottomTap = CLASS({
 
 	preset : function() {'use strict';
 		return NODE;
@@ -6,20 +6,12 @@ Yogurt.Toolbar = CLASS({
 
 	init : function(cls, inner, self, params) {'use strict';
 		//OPTIONAL: params
-		//OPTIONAL: params.left
-		//OPTIONAL: params.title
-		//OPTIONAL: params.right
+		//OPTIONAL: params.children
 		//OPTIONAL: params.style
 
 		var
-		// left
-		left = params === undefined ? undefined : params.left,
-
-		// title
-		title = params === undefined ? undefined : params.title,
-
-		// right
-		right = params === undefined ? undefined : params.right,
+		// children
+		children = params === undefined ? undefined : params.children,
 
 		// style
 		style = params === undefined ? undefined : params.style,
@@ -27,8 +19,11 @@ Yogurt.Toolbar = CLASS({
 		// color
 		color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.ToolbarColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.ToolbarColor,
 
-		// div
-		div,
+		// wrapper
+		wrapper,
+
+		// content
+		content,
 
 		// get dom.
 		getDom,
@@ -84,60 +79,43 @@ Yogurt.Toolbar = CLASS({
 		// check is show.
 		checkIsShow;
 
-		div = DIV({
+		wrapper = DIV({
 			style : {
-				backgroundColor : color,
-				height : 50,
+				height : 60,
 				color : '#fff'
 			},
-			children : [DIV({
+			children : [ content = DIV({
 				style : {
 					position : 'fixed',
-					top : 0,
+					bottom : 0,
 					backgroundColor : color,
-					height : 50,
-					width : '100%'
-				},
-				children : [left === undefined ? '' : DIV({
-					style : {
-						position : 'absolute',
-						top : 0,
-						left : 0
-					},
-					children : [left]
-				}), H1({
-					style : {
-						paddingTop : 13,
-						fontSize : 20,
-						textAlign : 'center',
-						fontWeight : 'bold'
-					},
-					children : [title === undefined ? '' : title]
-				}), right === undefined ? '' : DIV({
-					style : {
-						position : 'absolute',
-						top : 0,
-						right : 0
-					},
-					children : [right]
-				})]
+					height : 60,
+					width : '100%',
+					textAlign : 'center'
+				}
 			})]
 		});
 
 		self.getDom = getDom = function() {
-			return div;
+			return wrapper;
 		};
 
 		self.append = append = function(node) {
 			//REQUIRED: node
 
-			div.append(node);
+			content.append(node);
 		};
+
+		if (children !== undefined) {
+			EACH(children, function(child) {
+				append(child);
+			});
+		}
 
 		self.appendTo = appendTo = function(node) {
 			//REQUIRED: node
 
-			node.append(div);
+			node.append(wrapper);
 
 			return self;
 		};
@@ -145,13 +123,13 @@ Yogurt.Toolbar = CLASS({
 		self.prepend = prepend = function(node) {
 			//REQUIRED: node
 
-			div.prepend(node);
+			content.prepend(node);
 		};
 
 		self.prependTo = prependTo = function(node) {
 			//REQUIRED: node
 
-			node.prepend(div);
+			node.prepend(wrapper);
 
 			return self;
 		};
@@ -159,13 +137,13 @@ Yogurt.Toolbar = CLASS({
 		self.after = after = function(node) {
 			//REQUIRED: node
 
-			div.after(node);
+			wrapper.after(node);
 		};
 
 		self.insertAfter = insertAfter = function(node) {
 			//REQUIRED: node
 
-			node.after(div);
+			node.after(wrapper);
 
 			return self;
 		};
@@ -173,43 +151,43 @@ Yogurt.Toolbar = CLASS({
 		self.before = before = function(node) {
 			//REQUIRED: node
 
-			div.before(node);
+			wrapper.before(node);
 		};
 
 		self.insertBefore = insertBefore = function(node) {
 			//REQUIRED: node
 
-			node.before(div);
+			node.before(wrapper);
 
 			return self;
 		};
 
 		self.remove = remove = function() {
-			div.remove();
+			wrapper.remove();
 		};
 
 		self.removeAllChildren = removeAllChildren = function() {
-			div.removeAllChildren();
+			content.removeAllChildren();
 		};
 
 		self.getParent = getParent = function() {
-			return div.getParent();
+			return wrapper.getParent();
 		};
 
 		self.setParent = setParent = function(parent) {
 			//REQUIRED: parent
 
-			div.setParent(parent);
+			wrapper.setParent(parent);
 		};
 
 		self.getChildren = getChildren = function() {
-			return div.getChildren();
+			return content.getChildren();
 		};
 
 		self.addStyle = addStyle = function(style) {
 			//REQUIRED: style
 
-			div.addStyle(style);
+			wrapper.addStyle(style);
 		};
 
 		if (style !== undefined) {
@@ -217,15 +195,15 @@ Yogurt.Toolbar = CLASS({
 		}
 
 		self.show = show = function() {
-			div.show();
+			wrapper.show();
 		};
 
 		self.hide = hide = function() {
-			div.hide();
+			wrapper.hide();
 		};
 
 		self.checkIsShow = checkIsShow = function() {
-			return div.checkIsShow();
+			return wrapper.checkIsShow();
 		};
 	}
 });

@@ -7,7 +7,7 @@ Yogurt.ToolbarButton = CLASS({
 	init : function(cls, inner, self, params) {'use strict';
 		//REQUIRED: params
 		//OPTIONAL: params.img
-		//OPTIONAL: params.msg
+		//OPTIONAL: params.title
 		//OPTIONAL: params.href
 		//OPTIONAL: params.target
 		//OPTIONAL: params.style
@@ -17,8 +17,8 @@ Yogurt.ToolbarButton = CLASS({
 		// img
 		img = params.img,
 
-		// msg
-		msg = params.msg,
+		// title
+		title = params.title,
 
 		// href
 		href = params.href,
@@ -41,14 +41,14 @@ Yogurt.ToolbarButton = CLASS({
 		// evt
 		evt,
 
-		// set msg.
-		setMsg,
+		// set title.
+		setTitle,
 
 		// get img.
 		getImg,
 
-		// msg dom
-		msgDom,
+		// title dom
+		titleDom,
 
 		// get dom.
 		getDom,
@@ -116,12 +116,12 @@ Yogurt.ToolbarButton = CLASS({
 			},
 			href : href,
 			target : target,
-			children : [ msgDom = DIV({
+			children : [ titleDom = DIV({
 				style : {
 					flt : 'left'
 				},
 				children : [ span = SPAN({
-					children : [msg === undefined ? '' : msg]
+					children : [title === undefined ? '' : title]
 				})]
 			}), CLEAR_BOTH()]
 		});
@@ -144,8 +144,8 @@ Yogurt.ToolbarButton = CLASS({
 				node : img,
 				name : 'load'
 			}, function(e) {
-				msgDom.addStyle({
-					marginTop : (img.getHeight() - msgDom.getHeight()) / 2
+				titleDom.addStyle({
+					marginTop : (img.getHeight() - titleDom.getHeight()) / 2
 				});
 
 				evt.remove();
@@ -161,9 +161,9 @@ Yogurt.ToolbarButton = CLASS({
 			});
 		}
 
-		self.setMsg = setMsg = function(msg) {
+		self.setTitle = setTitle = function(title) {
 			span.removeAllChildren();
-			span.append(msg);
+			span.append(title);
 		};
 
 		self.getImg = getImg = function() {
