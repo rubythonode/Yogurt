@@ -111,9 +111,6 @@ Yogurt.Checkbox = CLASS({
 		// add input style.
 		addInputStyle,
 
-		// add change value proc.
-		addChangeValueProc,
-
 		// show.
 		show,
 
@@ -144,7 +141,8 @@ Yogurt.Checkbox = CLASS({
 				},
 				name : name,
 				type : 'checkbox',
-				value : value
+				value : value,
+				onChange : onChange
 			}), labelDom = SPAN({
 				style : {
 					flt : 'left',
@@ -286,34 +284,6 @@ Yogurt.Checkbox = CLASS({
 
 		if (inputStyle !== undefined) {
 			addInputStyle(inputStyle);
-		}
-
-		self.addChangeValueProc = addChangeValueProc = function(proc) {
-			//REQUIRED: proc
-
-			input.addChangeValueProc(proc);
-		};
-
-		addChangeValueProc(function() {
-
-			if (input.getValue() === true) {
-
-				wrapper.addStyle({
-					color : '#fff',
-					backgroundColor : color
-				});
-
-			} else {
-
-				wrapper.addStyle({
-					color : color,
-					backgroundColor : 'transparent'
-				});
-			}
-		});
-
-		if (onChange !== undefined) {
-			addChangeValueProc(onChange);
 		}
 
 		self.show = show = function() {

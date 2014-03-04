@@ -104,9 +104,6 @@ Yogurt.Select = CLASS({
 		// add option.
 		addOption,
 
-		// add change value proc.
-		addChangeValueProc,
-
 		// show.
 		show,
 
@@ -130,7 +127,8 @@ Yogurt.Select = CLASS({
 					backgroundColor : 'transparent',
 					border : 'none'
 				},
-				name : name
+				name : name,
+				onChange : onChange
 			})]
 		});
 
@@ -275,16 +273,6 @@ Yogurt.Select = CLASS({
 			EACH(options, function(option) {
 				addOption(option);
 			});
-		}
-
-		self.addChangeValueProc = addChangeValueProc = function(proc) {
-			//REQUIRED: proc
-
-			_select.addChangeValueProc(proc);
-		};
-
-		if (onChange !== undefined) {
-			addChangeValueProc(onChange);
 		}
 
 		self.show = show = function() {
