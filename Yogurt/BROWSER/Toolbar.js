@@ -1,5 +1,14 @@
 Yogurt.Toolbar = CLASS({
 
+	statics : function(cls) {'use strict';
+
+		// z index
+		cls.zIndex = 999;
+
+		// height
+		cls.height = 50;
+	},
+
 	preset : function() {'use strict';
 		return NODE;
 	},
@@ -26,6 +35,9 @@ Yogurt.Toolbar = CLASS({
 
 		// color
 		color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.ToolbarColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.ToolbarColor,
+
+		// text color
+		textColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.ToolbarTextColor === undefined ? '#fff' : BROWSER_CONFIG.Yogurt.ToolbarTextColor,
 
 		// div
 		div,
@@ -87,16 +99,17 @@ Yogurt.Toolbar = CLASS({
 		div = DIV({
 			style : {
 				backgroundColor : color,
-				height : 50,
-				color : '#fff'
+				height : cls.height,
+				color : textColor
 			},
 			children : [DIV({
 				style : {
 					position : 'fixed',
 					top : 0,
 					backgroundColor : color,
-					height : 50,
-					width : '100%'
+					height : cls.height,
+					width : '100%',
+					zIndex : cls.zIndex
 				},
 				children : [left === undefined ? '' : DIV({
 					style : {
