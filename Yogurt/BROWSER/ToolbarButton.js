@@ -11,7 +11,7 @@ Yogurt.ToolbarButton = CLASS({
 		//OPTIONAL: params.href
 		//OPTIONAL: params.target
 		//OPTIONAL: params.style
-		//OPTIONAL: params.onTap
+		//OPTIONAL: params.on
 
 		var
 		// img
@@ -29,8 +29,8 @@ Yogurt.ToolbarButton = CLASS({
 		// style
 		style = params.style,
 
-		// on tap
-		onTap = params.onTap,
+		// on
+		on = params.on,
 
 		// a
 		a,
@@ -53,69 +53,22 @@ Yogurt.ToolbarButton = CLASS({
 		// get dom.
 		getDom,
 
-		// append.
-		append,
-
-		// append to.
-		appendTo,
-
-		// prepend.
-		prepend,
-
-		// prepend to.
-		prependTo,
-
-		// after.
-		after,
-
-		// insert after.
-		insertAfter,
-
-		// before.
-		before,
-
-		// insert before.
-		insertBefore,
-
-		// remove.
-		remove,
-
-		// remove all children.
-		removeAllChildren,
-
-		// get parent.
-		getParent,
-
-		// set parent.
-		setParent,
-
-		// get children.
-		getChildren,
-
-		// add style.
-		addStyle,
-
-		// show.
-		show,
-
-		// hide.
-		hide,
-
-		// check is show.
-		checkIsShow,
-
 		// tap.
 		tap;
 
 		a = A({
-			style : {
-				display : 'block',
-				padding : '16px 10px',
-				cursor : 'pointer',
-				fontSize : 16
-			},
+			style : COMBINE_DATA({
+				origin : {
+					display : 'block',
+					padding : '16px 10px',
+					cursor : 'pointer',
+					fontSize : 16
+				},
+				extend : style
+			}),
 			href : href,
 			target : target,
+			on : on,
 			children : [ titleDom = DIV({
 				style : {
 					flt : 'left'
@@ -152,15 +105,6 @@ Yogurt.ToolbarButton = CLASS({
 			});
 		}
 
-		if (onTap !== undefined) {
-			EVENT({
-				node : a,
-				name : 'tap'
-			}, function(e) {
-				onTap(e, self);
-			});
-		}
-
 		self.setTitle = setTitle = function(title) {
 			span.removeAllChildren();
 			span.append(title);
@@ -174,108 +118,8 @@ Yogurt.ToolbarButton = CLASS({
 			return a;
 		};
 
-		self.append = append = function(node) {
-			//REQUIRED: node
-
-			a.append(node);
-		};
-
-		self.appendTo = appendTo = function(node) {
-			//REQUIRED: node
-
-			node.append(a);
-
-			return self;
-		};
-
-		self.prepend = prepend = function(node) {
-			//REQUIRED: node
-
-			a.prepend(node);
-		};
-
-		self.prependTo = prependTo = function(node) {
-			//REQUIRED: node
-
-			node.prepend(a);
-
-			return self;
-		};
-
-		self.after = after = function(node) {
-			//REQUIRED: node
-
-			a.after(node);
-		};
-
-		self.insertAfter = insertAfter = function(node) {
-			//REQUIRED: node
-
-			node.after(a);
-
-			return self;
-		};
-
-		self.before = before = function(node) {
-			//REQUIRED: node
-
-			a.before(node);
-		};
-
-		self.insertBefore = insertBefore = function(node) {
-			//REQUIRED: node
-
-			node.before(a);
-
-			return self;
-		};
-
-		self.remove = remove = function() {
-			a.remove();
-		};
-
-		self.removeAllChildren = removeAllChildren = function() {
-			a.removeAllChildren();
-		};
-
-		self.getParent = getParent = function() {
-			return a.getParent();
-		};
-
-		self.setParent = setParent = function(parent) {
-			//REQUIRED: parent
-
-			a.setParent(parent);
-		};
-
-		self.getChildren = getChildren = function() {
-			return a.getChildren();
-		};
-
-		self.addStyle = addStyle = function(style) {
-			//REQUIRED: style
-
-			a.addStyle(style);
-		};
-
-		if (style !== undefined) {
-			addStyle(style);
-		}
-
-		self.show = show = function() {
-			a.show();
-		};
-
-		self.hide = hide = function() {
-			a.hide();
-		};
-
-		self.checkIsShow = checkIsShow = function() {
-			return a.checkIsShow();
-		};
-
 		self.tap = tap = function() {
-			onTap();
+			a.tap();
 		};
 	}
 });

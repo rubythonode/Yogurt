@@ -12,7 +12,7 @@ Yogurt.Checkbox = CLASS({
 		//OPTIONAL: params.children
 		//OPTIONAL: params.wrapperStyle
 		//OPTIONAL: params.inputStyle
-		//OPTIONAL: params.onChange
+		//OPTIONAL: params.on
 
 		var
 		// name
@@ -33,8 +33,8 @@ Yogurt.Checkbox = CLASS({
 		// input style
 		inputStyle = params.inputStyle,
 
-		// on change.
-		onChange = params.onChange,
+		// on
+		on = params.on,
 
 		// color
 		color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.ButtonColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.ButtonColor,
@@ -50,45 +50,6 @@ Yogurt.Checkbox = CLASS({
 
 		// get dom.
 		getDom,
-
-		// append.
-		append,
-
-		// append to.
-		appendTo,
-
-		// prepend.
-		prepend,
-
-		// prepend to.
-		prependTo,
-
-		// after.
-		after,
-
-		// insert after.
-		insertAfter,
-
-		// before.
-		before,
-
-		// insert before.
-		insertBefore,
-
-		// remove.
-		remove,
-
-		// remove all children.
-		removeAllChildren,
-
-		// get parent.
-		getParent,
-
-		// set parent.
-		setParent,
-
-		// get children.
-		getChildren,
 
 		// get name.
 		getName,
@@ -109,16 +70,7 @@ Yogurt.Checkbox = CLASS({
 		addWrapperStyle,
 
 		// add input style.
-		addInputStyle,
-
-		// show.
-		show,
-
-		// hide.
-		hide,
-
-		// check is show.
-		checkIsShow;
+		addInputStyle;
 
 		wrapper = DIV({
 			style : {
@@ -142,7 +94,7 @@ Yogurt.Checkbox = CLASS({
 				name : name,
 				type : 'checkbox',
 				value : value,
-				onChange : onChange
+				on : on
 			}), labelDom = SPAN({
 				style : {
 					flt : 'left',
@@ -160,89 +112,11 @@ Yogurt.Checkbox = CLASS({
 			return wrapper;
 		};
 
-		self.append = append = function(node) {
-			//REQUIRED: node
-
-			wrapper.append(node);
-		};
-
 		if (children !== undefined) {
 			EACH(children, function(child, i) {
 				labelDom.after(child);
 			});
 		}
-
-		self.appendTo = appendTo = function(node) {
-			//REQUIRED: node
-
-			node.append(wrapper);
-
-			return self;
-		};
-
-		self.prepend = prepend = function(node) {
-			//REQUIRED: node
-
-			wrapper.prepend(node);
-		};
-
-		self.prependTo = prependTo = function(node) {
-			//REQUIRED: node
-
-			node.prepend(wrapper);
-
-			return self;
-		};
-
-		self.after = after = function(node) {
-			//REQUIRED: node
-
-			wrapper.after(node);
-		};
-
-		self.insertAfter = insertAfter = function(node) {
-			//REQUIRED: node
-
-			node.after(wrapper);
-
-			return self;
-		};
-
-		self.before = before = function(node) {
-			//REQUIRED: node
-
-			wrapper.before(node);
-		};
-
-		self.insertBefore = insertBefore = function(node) {
-			//REQUIRED: node
-
-			node.before(wrapper);
-
-			return self;
-		};
-
-		self.remove = remove = function() {
-			wrapper.remove();
-		};
-
-		self.removeAllChildren = removeAllChildren = function() {
-			wrapper.removeAllChildren();
-		};
-
-		self.getParent = getParent = function() {
-			return wrapper.getParent();
-		};
-
-		self.setParent = setParent = function(parent) {
-			//REQUIRED: parent
-
-			wrapper.setParent(parent);
-		};
-
-		self.getChildren = getChildren = function() {
-			return wrapper.getChildren();
-		};
 
 		self.getName = getName = function() {
 			return name;
@@ -285,17 +159,5 @@ Yogurt.Checkbox = CLASS({
 		if (inputStyle !== undefined) {
 			addInputStyle(inputStyle);
 		}
-
-		self.show = show = function() {
-			wrapper.show();
-		};
-
-		self.hide = hide = function() {
-			wrapper.hide();
-		};
-
-		self.checkIsShow = checkIsShow = function() {
-			return wrapper.checkIsShow();
-		};
 	}
 });

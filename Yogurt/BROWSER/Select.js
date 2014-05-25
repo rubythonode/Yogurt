@@ -11,7 +11,7 @@ Yogurt.Select = CLASS({
 		//REQUIRED: params.options
 		//OPTIONAL: params.wrapperStyle
 		//OPTIONAL: params.selectStyle
-		//OPTIONAL: params.onChange
+		//OPTIONAL: params.on
 
 		var
 		// name
@@ -29,8 +29,8 @@ Yogurt.Select = CLASS({
 		// select style
 		selectStyle = params.selectStyle,
 
-		// on change.
-		onChange = params.onChange,
+		// on
+		on = params.on,
 
 		// wrapper
 		wrapper,
@@ -40,45 +40,6 @@ Yogurt.Select = CLASS({
 
 		// get dom.
 		getDom,
-
-		// append.
-		append,
-
-		// append to.
-		appendTo,
-
-		// prepend.
-		prepend,
-
-		// prepend to.
-		prependTo,
-
-		// after.
-		after,
-
-		// insert after.
-		insertAfter,
-
-		// before.
-		before,
-
-		// insert before.
-		insertBefore,
-
-		// remove.
-		remove,
-
-		// remove all children.
-		removeAllChildren,
-
-		// get parent.
-		getParent,
-
-		// set parent.
-		setParent,
-
-		// get children.
-		getChildren,
 
 		// get name.
 		getName,
@@ -102,16 +63,7 @@ Yogurt.Select = CLASS({
 		addSelectStyle,
 
 		// add option.
-		addOption,
-
-		// show.
-		show,
-
-		// hide.
-		hide,
-
-		// check is show.
-		checkIsShow;
+		addOption;
 
 		wrapper = DIV({
 			style : {
@@ -128,7 +80,7 @@ Yogurt.Select = CLASS({
 					border : 'none'
 				},
 				name : name,
-				onChange : onChange
+				on : on
 			})]
 		});
 
@@ -137,84 +89,6 @@ Yogurt.Select = CLASS({
 
 		self.getDom = getDom = function() {
 			return wrapper;
-		};
-
-		self.append = append = function(node) {
-			//REQUIRED: node
-
-			wrapper.append(node);
-		};
-
-		self.appendTo = appendTo = function(node) {
-			//REQUIRED: node
-
-			node.append(wrapper);
-
-			return self;
-		};
-
-		self.prepend = prepend = function(node) {
-			//REQUIRED: node
-
-			wrapper.prepend(node);
-		};
-
-		self.prependTo = prependTo = function(node) {
-			//REQUIRED: node
-
-			node.prepend(wrapper);
-
-			return self;
-		};
-
-		self.after = after = function(node) {
-			//REQUIRED: node
-
-			wrapper.after(node);
-		};
-
-		self.insertAfter = insertAfter = function(node) {
-			//REQUIRED: node
-
-			node.after(wrapper);
-
-			return self;
-		};
-
-		self.before = before = function(node) {
-			//REQUIRED: node
-
-			wrapper.before(node);
-		};
-
-		self.insertBefore = insertBefore = function(node) {
-			//REQUIRED: node
-
-			node.before(wrapper);
-
-			return self;
-		};
-
-		self.remove = remove = function() {
-			wrapper.remove();
-		};
-
-		self.removeAllChildren = removeAllChildren = function() {
-			wrapper.removeAllChildren();
-		};
-
-		self.getParent = getParent = function() {
-			return wrapper.getParent();
-		};
-
-		self.setParent = setParent = function(parent) {
-			//REQUIRED: parent
-
-			wrapper.setParent(parent);
-		};
-
-		self.getChildren = getChildren = function() {
-			return wrapper.getChildren();
 		};
 
 		self.getName = getName = function() {
@@ -274,17 +148,5 @@ Yogurt.Select = CLASS({
 				addOption(option);
 			});
 		}
-
-		self.show = show = function() {
-			wrapper.show();
-		};
-
-		self.hide = hide = function() {
-			wrapper.hide();
-		};
-
-		self.checkIsShow = checkIsShow = function() {
-			return wrapper.checkIsShow();
-		};
 	}
 });

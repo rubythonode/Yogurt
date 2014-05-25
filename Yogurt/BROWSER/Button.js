@@ -11,7 +11,7 @@ Yogurt.Button = CLASS({
 		//OPTIONAL: params.href
 		//OPTIONAL: params.target
 		//OPTIONAL: params.style
-		//OPTIONAL: params.onTap
+		//OPTIONAL: params.on
 
 		var
 		// img
@@ -29,8 +29,8 @@ Yogurt.Button = CLASS({
 		// style
 		style = params.style,
 
-		// on tap
-		onTap = params.onTap,
+		// on
+		on = params.on,
 
 		// color
 		color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.ButtonColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.ButtonColor,
@@ -50,78 +50,31 @@ Yogurt.Button = CLASS({
 		// get dom.
 		getDom,
 
-		// append.
-		append,
-
-		// append to.
-		appendTo,
-
-		// prepend.
-		prepend,
-
-		// prepend to.
-		prependTo,
-
-		// after.
-		after,
-
-		// insert after.
-		insertAfter,
-
-		// before.
-		before,
-
-		// insert before.
-		insertBefore,
-
-		// remove.
-		remove,
-
-		// remove all children.
-		removeAllChildren,
-
-		// get parent.
-		getParent,
-
-		// set parent.
-		setParent,
-
-		// get children.
-		getChildren,
-
-		// add style.
-		addStyle,
-
-		// show.
-		show,
-
-		// hide.
-		hide,
-
-		// check is show.
-		checkIsShow,
-
 		// tap.
 		tap;
 
 		a = A({
-			style : {
-				display : 'block',
-				textAlign : 'center',
-				paddingTop : 20,
-				paddingBottom : 20,
-				cursor : 'pointer',
-				textDecoration : 'none',
-				color : color,
-				fontSize : 24,
-				border : '1px solid ' + color,
-				borderRadius : 5,
-				touchCallout : 'none',
-				userSelect : 'none',
-				backgroundColor : '#fff'
-			},
+			style : COMBINE_DATA({
+				origin : {
+					display : 'block',
+					textAlign : 'center',
+					paddingTop : 20,
+					paddingBottom : 20,
+					cursor : 'pointer',
+					textDecoration : 'none',
+					color : color,
+					fontSize : 24,
+					border : '1px solid ' + color,
+					borderRadius : 5,
+					touchCallout : 'none',
+					userSelect : 'none',
+					backgroundColor : '#fff'
+				},
+				extend : style
+			}),
 			href : href,
-			target : target
+			target : target,
+			on : on
 		});
 
 		if (title !== undefined) {
@@ -139,15 +92,6 @@ Yogurt.Button = CLASS({
 				},
 				children : [img]
 			}));
-		}
-
-		if (onTap !== undefined) {
-			EVENT({
-				node : a,
-				name : 'tap'
-			}, function(e) {
-				onTap(e, self);
-			});
 		}
 
 		EVENT({
@@ -183,108 +127,8 @@ Yogurt.Button = CLASS({
 			return a;
 		};
 
-		self.append = append = function(node) {
-			//REQUIRED: node
-
-			a.append(node);
-		};
-
-		self.appendTo = appendTo = function(node) {
-			//REQUIRED: node
-
-			node.append(a);
-
-			return self;
-		};
-
-		self.prepend = prepend = function(node) {
-			//REQUIRED: node
-
-			a.prepend(node);
-		};
-
-		self.prependTo = prependTo = function(node) {
-			//REQUIRED: node
-
-			node.prepend(a);
-
-			return self;
-		};
-
-		self.after = after = function(node) {
-			//REQUIRED: node
-
-			a.after(node);
-		};
-
-		self.insertAfter = insertAfter = function(node) {
-			//REQUIRED: node
-
-			node.after(a);
-
-			return self;
-		};
-
-		self.before = before = function(node) {
-			//REQUIRED: node
-
-			a.before(node);
-		};
-
-		self.insertBefore = insertBefore = function(node) {
-			//REQUIRED: node
-
-			node.before(a);
-
-			return self;
-		};
-
-		self.remove = remove = function() {
-			a.remove();
-		};
-
-		self.removeAllChildren = removeAllChildren = function() {
-			a.removeAllChildren();
-		};
-
-		self.getParent = getParent = function() {
-			return a.getParent();
-		};
-
-		self.setParent = setParent = function(parent) {
-			//REQUIRED: parent
-
-			a.setParent(parent);
-		};
-
-		self.getChildren = getChildren = function() {
-			return a.getChildren();
-		};
-
-		self.addStyle = addStyle = function(style) {
-			//REQUIRED: style
-
-			a.addStyle(style);
-		};
-
-		if (style !== undefined) {
-			addStyle(style);
-		}
-
-		self.show = show = function() {
-			a.show();
-		};
-
-		self.hide = hide = function() {
-			a.hide();
-		};
-
-		self.checkIsShow = checkIsShow = function() {
-			return a.checkIsShow();
-		};
-
 		self.tap = tap = function() {
-			onTap();
+			a.tap();
 		};
 	}
 });
