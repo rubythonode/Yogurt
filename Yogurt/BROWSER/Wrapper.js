@@ -6,12 +6,12 @@ Yogurt.Wrapper = CLASS({
 
 	init : function(cls, inner, self, params) {'use strict';
 		//OPTIONAL: params
-		//OPTIONAL: params.children
+		//OPTIONAL: params.c
 		//OPTIONAL: params.style
 
 		var
 		// children
-		children = params === undefined ? undefined : params.children,
+		children = params === undefined ? undefined : (params.c === undefined || CHECK_IS_ARRAY(params.c) === true ? params.c : [params.c]),
 
 		// style
 		style = COMBINE_DATA({
@@ -38,7 +38,7 @@ Yogurt.Wrapper = CLASS({
 				},
 				extend : style
 			}),
-			children : children
+			c : children
 		});
 
 		self.getDom = getDom = function() {

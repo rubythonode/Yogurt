@@ -9,7 +9,7 @@ Yogurt.Checkbox = CLASS({
 		//REQUIRED: params.name
 		//REQUIRED: params.label
 		//OPTIONAL: params.value
-		//OPTIONAL: params.children
+		//OPTIONAL: params.c
 		//OPTIONAL: params.wrapperStyle
 		//OPTIONAL: params.inputStyle
 		//OPTIONAL: params.on
@@ -25,7 +25,7 @@ Yogurt.Checkbox = CLASS({
 		value = params.value,
 
 		// children
-		children = params.children,
+		children = params.c === undefined || CHECK_IS_ARRAY(params.c) === true ? params.c : [params.c],
 
 		// wrapper style
 		wrapperStyle = params.wrapperStyle,
@@ -85,7 +85,7 @@ Yogurt.Checkbox = CLASS({
 					e.stop();
 				}
 			},
-			children : [ input = INPUT({
+			c : [ input = INPUT({
 				style : {
 					flt : 'left',
 					marginTop : 10,
@@ -101,7 +101,7 @@ Yogurt.Checkbox = CLASS({
 					padding : 10,
 					paddingLeft : 0
 				},
-				children : [label]
+				c : label
 			}), CLEAR_BOTH()]
 		});
 

@@ -1,1 +1,34 @@
-PUT_JSON({uri:"AJAX_JSON_TEST"},function(o){console.log(o)}),PUT_JSON({uri:"AJAX_JSON_TEST",paramStr:"thisis=parameter"},function(o){console.log(o)}),PUT_JSON({uri:"AJAX_JSON_TEST",data:{thisis:"data"}},function(o){console.log(o)}),TestBox.PUT_JSON({uri:"AJAX_JSON_TEST",data:{thisis:"data"}},function(o){console.log(o)});
+// test PUT request.
+PUT_JSON({
+	uri : 'AJAX_JSON_TEST'
+}, function(data) {
+	console.log(data);
+});
+
+// test PUT request with parameters.
+PUT_JSON({
+	uri : 'AJAX_JSON_TEST',
+	paramStr : 'thisis=parameter'
+}, function(data) {
+	console.log(data);
+});
+
+// test PUT request with data.
+PUT_JSON({
+	uri : 'AJAX_JSON_TEST',
+	data : {
+		thisis : 'data'
+	}
+}, function(data) {
+	console.log(data);
+});
+
+// test TestBox PUT request with data. (when import UPPERCASE-BOX.JS.)
+TestBox.PUT_JSON({
+	uri : 'AJAX_JSON_TEST',
+	data : {
+		thisis : 'data'
+	}
+}, function(data) {
+	console.log(data);
+});

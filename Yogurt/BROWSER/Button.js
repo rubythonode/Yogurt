@@ -79,9 +79,9 @@ Yogurt.Button = CLASS({
 
 		if (title !== undefined) {
 			a.prepend(DIV({
-				children : [ span = SPAN({
-					children : [title === undefined ? '' : title]
-				})]
+				c : span = SPAN({
+					c : title === undefined ? '' : title
+				})
 			}));
 		}
 
@@ -90,7 +90,7 @@ Yogurt.Button = CLASS({
 				style : {
 					marginBottom : title !== undefined ? 5 : 0
 				},
-				children : [img]
+				c : [img]
 			}));
 		}
 
@@ -115,7 +115,7 @@ Yogurt.Button = CLASS({
 		});
 
 		self.setTitle = setTitle = function(title) {
-			span.removeAllChildren();
+			span.empty();
 			span.append(title);
 		};
 

@@ -69,13 +69,13 @@ Yogurt.ToolbarButton = CLASS({
 			href : href,
 			target : target,
 			on : on,
-			children : [ titleDom = DIV({
+			c : [ titleDom = DIV({
 				style : {
 					flt : 'left'
 				},
-				children : [ span = SPAN({
-					children : [title === undefined ? '' : title]
-				})]
+				c : span = SPAN({
+					c : title === undefined ? '' : title
+				})
 			}), CLEAR_BOTH()]
 		});
 
@@ -106,7 +106,7 @@ Yogurt.ToolbarButton = CLASS({
 		}
 
 		self.setTitle = setTitle = function(title) {
-			span.removeAllChildren();
+			span.empty();
 			span.append(title);
 		};
 

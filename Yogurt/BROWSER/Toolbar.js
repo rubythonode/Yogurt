@@ -54,7 +54,7 @@ Yogurt.Toolbar = CLASS({
 				},
 				extend : style
 			}),
-			children : [DIV({
+			c : [DIV({
 				style : {
 					position : 'fixed',
 					top : 0,
@@ -63,13 +63,13 @@ Yogurt.Toolbar = CLASS({
 					width : '100%',
 					zIndex : cls.zIndex
 				},
-				children : [left === undefined ? '' : DIV({
+				c : [left === undefined ? '' : DIV({
 					style : {
 						position : 'absolute',
 						top : 0,
 						left : 0
 					},
-					children : [left]
+					c : left
 				}), H1({
 					style : {
 						paddingTop : 13,
@@ -77,14 +77,14 @@ Yogurt.Toolbar = CLASS({
 						textAlign : 'center',
 						fontWeight : 'bold'
 					},
-					children : [title === undefined ? '' : title]
+					c : title === undefined ? '' : title
 				}), right === undefined ? '' : DIV({
 					style : {
 						position : 'absolute',
 						top : 0,
 						right : 0
 					},
-					children : [right]
+					c : right
 				})]
 			})]
 		});

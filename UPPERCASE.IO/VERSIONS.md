@@ -1,11 +1,16 @@
 VERSIONS
 ========
-now working
-- 통신, DB 보안 (서버측 인증 처리 -> CHECK_ROLE 추가)
-- 분산 서버 구성 (DB, 웹 서버 모두 분산 가능 -> 수평적 확장 가능)
-- Redis를 이용한 파일 캐시, 분산 파일 서버
-- R/RF 다운로드 카운터
-- 소켓 통신 지원
+1.3.6 (2014. 6. 12)
+- MODEL.getData, MODEL.findDat를 MODEL.get으로 통합
+- MODEL.updateData -> MODEL.update, MODEL.removeData -> MODEL.remove, MODEL.findDataSet -> MODEL.find, MODEL.countDataSet -> MODEL.count로 변경
+- MODEL.getDataWatching -> MODEL.getWatching, MODEL.findDataSetWatching -> MODEL.findWatching으로 변경
+- DOM.children -> DOM.c, DOM.removeAllChildren -> DOM.empty로 변경
+
+1.3.5 (2014. 5. 30)
+- 멀티코어 지원
+- findDataSet에서 sort를 지정하지 않으면 기본적으로 createTime 순으로 정렬되게 변경
+- DB.getData, DB.findDat를 DB.get으로 통합
+- DB.updateData -> DB.update, DB.removeData -> DB.remove, DB.findDataSet -> DB.find, DB.countDataSet -> DB.count로 변경
 
 1.3.4 (2014. 5. 19)
 - 데이터베이스에 데이터 저장 시 __RANDOM_KEY 자동 생성

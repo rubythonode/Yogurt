@@ -73,7 +73,7 @@ Yogurt.Select = CLASS({
 				border : '1px solid #666',
 				borderLeft : '5px solid #666'
 			},
-			children : [ _select = SELECT({
+			c : _select = SELECT({
 				style : {
 					width : '100%',
 					backgroundColor : 'transparent',
@@ -81,7 +81,7 @@ Yogurt.Select = CLASS({
 				},
 				name : name,
 				on : on
-			})]
+			})
 		});
 
 		// for VALID_FORM.
