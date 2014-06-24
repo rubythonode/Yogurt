@@ -4,7 +4,7 @@ YogurtShowcase.Toolbar = CLASS({
 		return VIEW;
 	},
 
-	init : function(cls, inner, self) {'use strict';
+	init : function(inner, self) {'use strict';
 
 		var
 		// wrapper

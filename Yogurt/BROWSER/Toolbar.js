@@ -1,96 +1,97 @@
-Yogurt.Toolbar = CLASS({
+Yogurt.Toolbar = CLASS(function(cls) {'use strict';
 
-	statics : function(cls) {'use strict';
+	var
+	// z index
+	zIndex = 999,
 
-		// z index
-		cls.zIndex = 999;
+	// height
+	height = 50;
 
-		// height
-		cls.height = 50;
-	},
+	return {
 
-	preset : function() {'use strict';
-		return NODE;
-	},
+		preset : function() {
+			return NODE;
+		},
 
-	init : function(cls, inner, self, params) {'use strict';
-		//OPTIONAL: params
-		//OPTIONAL: params.left
-		//OPTIONAL: params.title
-		//OPTIONAL: params.right
-		//OPTIONAL: params.style
+		init : function(inner, self, params) {
+			//OPTIONAL: params
+			//OPTIONAL: params.left
+			//OPTIONAL: params.title
+			//OPTIONAL: params.right
+			//OPTIONAL: params.style
 
-		var
-		// left
-		left = params === undefined ? undefined : params.left,
+			var
+			// left
+			left = params === undefined ? undefined : params.left,
 
-		// title
-		title = params === undefined ? undefined : params.title,
+			// title
+			title = params === undefined ? undefined : params.title,
 
-		// right
-		right = params === undefined ? undefined : params.right,
+			// right
+			right = params === undefined ? undefined : params.right,
 
-		// style
-		style = params === undefined ? undefined : params.style,
+			// style
+			style = params === undefined ? undefined : params.style,
 
-		// color
-		color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.ToolbarColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.ToolbarColor,
+			// color
+			color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.ToolbarColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.ToolbarColor,
 
-		// text color
-		textColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.ToolbarTextColor === undefined ? '#fff' : BROWSER_CONFIG.Yogurt.ToolbarTextColor,
+			// text color
+			textColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.ToolbarTextColor === undefined ? '#fff' : BROWSER_CONFIG.Yogurt.ToolbarTextColor,
 
-		// div
-		div,
+			// div
+			div,
 
-		// get dom.
-		getDom;
+			// get dom.
+			getDom;
 
-		div = DIV({
-			style : COMBINE_DATA({
-				origin : {
-					backgroundColor : color,
-					height : cls.height,
-					color : textColor
-				},
-				extend : style
-			}),
-			c : [DIV({
-				style : {
-					position : 'fixed',
-					top : 0,
-					backgroundColor : color,
-					height : cls.height,
-					width : '100%',
-					zIndex : cls.zIndex
-				},
-				c : [left === undefined ? '' : DIV({
+			div = DIV({
+				style : COMBINE_DATA({
+					origin : {
+						backgroundColor : color,
+						height : height,
+						color : textColor
+					},
+					extend : style
+				}),
+				c : [DIV({
 					style : {
-						position : 'absolute',
+						position : 'fixed',
 						top : 0,
-						left : 0
+						backgroundColor : color,
+						height : height,
+						width : '100%',
+						zIndex : zIndex
 					},
-					c : left
-				}), H1({
-					style : {
-						paddingTop : 13,
-						fontSize : 20,
-						textAlign : 'center',
-						fontWeight : 'bold'
-					},
-					c : title === undefined ? '' : title
-				}), right === undefined ? '' : DIV({
-					style : {
-						position : 'absolute',
-						top : 0,
-						right : 0
-					},
-					c : right
+					c : [left === undefined ? '' : DIV({
+						style : {
+							position : 'absolute',
+							top : 0,
+							left : 0
+						},
+						c : left
+					}), H1({
+						style : {
+							paddingTop : 13,
+							fontSize : 20,
+							textAlign : 'center',
+							fontWeight : 'bold'
+						},
+						c : title === undefined ? '' : title
+					}), right === undefined ? '' : DIV({
+						style : {
+							position : 'absolute',
+							top : 0,
+							right : 0
+						},
+						c : right
+					})]
 				})]
-			})]
-		});
+			});
 
-		self.getDom = getDom = function() {
-			return div;
-		};
-	}
+			self.getDom = getDom = function() {
+				return div;
+			};
+		}
+	};
 });

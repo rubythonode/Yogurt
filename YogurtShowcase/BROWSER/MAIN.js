@@ -1,6 +1,6 @@
 YogurtShowcase.MAIN = METHOD({
 
-	run : function(m, params) {'use strict';
+	run : function(params) {'use strict';
 
 		YogurtShowcase.MATCH_VIEW({
 			uris : ['', '**'],
